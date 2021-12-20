@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: a19ad5dd22d0c504fa35ef418d689adc
+  m_SerializeEntries:
+  - m_GUID: 9fc0d4010bbf28b4594072e72b8655ab
+    m_Address: Assets/Scenes/MainMenu.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c87f38edac768ff4689c9943e0bccb73
+    m_Address: Assets/Scenes/GameScene.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a9308a1d2c7362d4bb4360a3db3e2cde
+    m_Address: Assets/Scenes/Results.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1b0348645467b0d4caeb5bc7bb4a0b8e
+    m_Address: Assets/Scenes/GameSceneUI.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bf284395a795b6d4d8ff5385da1bdbab
+    m_Address: Assets/Scenes/SceneLoader.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7da895d39084b87468591a3c53306f80
+    m_Address: Assets/Prefabs/Things/TestSpawnable.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 08f830fa8e54c0e4c87a9828690f28c9
+    m_Address: Assets/Prefabs/Things/Cat.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cbe8000713359c54e997af6f4acddefa
+    m_Address: Assets/Prefabs/UI/PlayerEntry.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 5efe83e42d05e8a43a0be4fe019b4f1b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 14d34950b1444dc4eaa92e39ccbc2065, type: 2}
+    - {fileID: 11400000, guid: 881efe7fcd14cfa4b80e3840c1ba9ea2, type: 2}
