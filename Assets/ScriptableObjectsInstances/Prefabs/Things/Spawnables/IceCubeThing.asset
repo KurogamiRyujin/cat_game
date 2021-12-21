@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a4a4f32948420e4f8a74dadedf9c814, type: 3}
-  m_Name: ThingsSpawnableList
+  m_Script: {fileID: 11500000, guid: 9694f097c4adb7b44abbd45cd039865b, type: 3}
+  m_Name: IceCubeThing
   m_EditorClassIdentifier: 
-  spawnables:
-  - {fileID: 11400000, guid: 3684c967d6d2b8d4893801c7884ddc3d, type: 2}
-  - {fileID: 11400000, guid: 0df378095b347184a9e0b08433a0a595, type: 2}
+  prefab: {fileID: 4713517629726941241, guid: 07fbe3c99aa0e5640beba0a4d83e71b6, type: 3}
+  pool: {fileID: 11400000, guid: d5a19fdee651e2948bfe4ceb3031e4fb, type: 2}

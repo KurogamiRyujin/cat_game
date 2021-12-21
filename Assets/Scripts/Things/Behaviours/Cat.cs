@@ -27,7 +27,9 @@ public class Cat : Thing, ISpawnable, IControllable, IPoolable, IWeight, IBurnab
     public UnityEvent<AnimationEventParameter> OnPush;
 
     private void OnDestroy() {
-        OnDestroyEvent(this);
+        if(OnDestroyEvent != null) {
+            OnDestroyEvent(this);
+        }
     }
 
     //Controls involving physics
@@ -134,7 +136,9 @@ public class Cat : Thing, ISpawnable, IControllable, IPoolable, IWeight, IBurnab
     {
         currentThingStats.CleanseAllStatus();
         gameObject.SetActive(false);
-        OnRelease(this);
+        if(OnRelease != null) {
+            OnRelease(this);
+        }
     }
 
     public float GetWeight()

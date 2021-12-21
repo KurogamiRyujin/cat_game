@@ -12,6 +12,8 @@ public class SpawnReferenceSO : ScriptableObject
         CAT,
         TEST,
         PEOPLE,
+        ICE_CUBE,
+        VOLCANO,
         OTHER
     }
     //NOTE: Changed it to normal instantiate instead of Asyncrhronous Instantiate from Addressables.

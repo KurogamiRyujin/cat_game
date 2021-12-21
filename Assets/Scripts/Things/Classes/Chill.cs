@@ -11,8 +11,8 @@ public class Chill : StatusEffect
     public override void ApplyStatus(ThingStats thingStats)
     {
         if(!thingStats.CheckStatusFor(typeof(ChillImmunity))) {
-            thingStats.heatValue = thingStats.heatValue - Mathf.Abs(thingStats.heatValue / 2);
-            thingStats.weight *= 2;
+            thingStats.heatModifiers -= (thingStats.heatValue > 0) ? thingStats.heatValue - Mathf.Abs(thingStats.heatValue / 2) : 0;
+            thingStats.weightModifiers += thingStats.weight;
         }
         else {
             duration = 0f;

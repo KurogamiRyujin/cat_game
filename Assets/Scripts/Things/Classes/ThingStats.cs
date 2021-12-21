@@ -8,6 +8,8 @@ public class ThingStats
 {
     public float weight = 1f;
     public int heatValue = 2;
+    public float weightModifiers = 0f;
+    public int heatModifiers = 0;
 
     private List<StatusEffect> statusEffects = new List<StatusEffect>();
 

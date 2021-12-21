@@ -16,18 +16,29 @@ public abstract class Thing : MonoBehaviour
 
     protected virtual void Start() {
         currentThingStats.AddStatus(new ChillImmunity(thingStats.chillImmunityOnSpawnDuration));
+        InitStats();
     }
 
     protected virtual void InitStats() {
+        currentThingStats.weightModifiers = 0;
+        currentThingStats.heatModifiers = 0;
         currentThingStats.weight = thingStats.weight;
         currentThingStats.heatValue = thingStats.heatValue;
     }
 
     protected virtual void Update() {
-        InitStats();
+        //Refresh current stats
+        currentThingStats.weight = thingStats.weight;
+        currentThingStats.heatValue = thingStats.heatValue;
+        
+        currentThingStats.ApplyStatuses();
         PileCheck();
         UpdateWeight();
-        currentThingStats.ApplyStatuses();
+        UpdateHeatValue();
+
+        //Reset modifiers
+        currentThingStats.weightModifiers = 0;
+        currentThingStats.heatModifiers = 0;
     }
 
     //Cast a ray above this object to see if there is an IWeight on top of it.
@@ -42,20 +53,24 @@ public abstract class Thing : MonoBehaviour
         else {//Otherwise, set thingOnTop to null
             thingOnTop = null;
         }
-    }
 
-    //Update this Thing's weight according to presence of thingOnTop
-    private void UpdateWeight() {
-        //If there is a thingOnTop, adjust it
+        //If there is a thingOnTop, adjust weight modifier
         if(thingOnTop != null) {
-            currentThingStats.weight = thingOnTop.GetWeight() + thingStats.weight;
-        }//Otherwise if there is no thingOnTop, reset it
-        else {
-            ResetWeight();
+            currentThingStats.weightModifiers += thingOnTop.GetWeight();
         }
     }
 
-    protected virtual void ResetWeight() {
-        currentThingStats.weight = thingStats.weight;
+    /// <summary>
+    /// Update this Thing's weight based on the modifiers.
+    /// </summary>
+    private void UpdateWeight() {
+        currentThingStats.weight = thingStats.weight + currentThingStats.weightModifiers;
+    }
+
+    /// <summary>
+    /// Update this Thing's heatValue based on modifiers.
+    /// </summary>
+    private void UpdateHeatValue() {
+        currentThingStats.heatValue = thingStats.heatValue + currentThingStats.heatModifiers;
     }
 }
