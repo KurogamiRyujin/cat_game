@@ -14,7 +14,7 @@ public class TestSpawnable : Thing, ISpawnable, IPoolable, IPushable, IWeight, I
     public event Action<IPoolable> OnRelease;
     public event Action<IPoolable> OnDestroyEvent;
 
-    protected override void Awake() {
+    private void Awake() {
         rb = GetComponent<Rigidbody>();
         // isBeingPushed = false;
     }
@@ -69,7 +69,8 @@ public class TestSpawnable : Thing, ISpawnable, IPoolable, IPushable, IWeight, I
     }
 
     public void Activate() {
-        OnActivate();
+        currentThingStats.AddStatus(new ChillImmunity(thingStats.chillImmunityOnSpawnDuration));
+        InitStats();
         gameObject.SetActive(true);
     }
 
@@ -78,12 +79,6 @@ public class TestSpawnable : Thing, ISpawnable, IPoolable, IPushable, IWeight, I
         currentThingStats.CleanseAllStatus();
         gameObject.SetActive(false);
         OnRelease(this);
-    }
-
-    public void OnActivate()
-    {
-        currentThingStats.AddStatus(new ChillImmunity(thingStats.chillImmunityOnSpawnDuration));
-        InitStats();
     }
 
     public GameObject GetGameObject()

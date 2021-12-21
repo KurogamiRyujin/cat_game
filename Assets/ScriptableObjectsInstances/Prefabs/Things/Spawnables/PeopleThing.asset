@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9694f097c4adb7b44abbd45cd039865b, type: 3}
+  m_Name: PeopleThing
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8424490563826283062, guid: 170e634b05910f74abb00908f6be88c9, type: 3}
+  pool: {fileID: 11400000, guid: 9d89630bcf1493e4290352913d13578c, type: 2}

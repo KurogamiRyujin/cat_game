@@ -13,23 +13,27 @@ public class Spawner : MonoBehaviour
         //Register events
         if(spawnRequestBroadcasting != null) {
             spawnRequestBroadcasting.onEventRaised += Spawn;
+        }
+        if(poolingRequestBroadcastChannel != null) {
             poolingRequestBroadcastChannel.onEventRaised += Spawn;
         }
     }
 
     private void OnDisable() {
         //Unregister events
-        if(spawnRequestBroadcasting.onEventRaised != null) {
+        if(spawnRequestBroadcasting != null) {
             spawnRequestBroadcasting.onEventRaised -= Spawn;
+        }
+        if(poolingRequestBroadcastChannel != null) {
             poolingRequestBroadcastChannel.onEventRaised -= Spawn;
         }
     }
 
-    private GameObject Spawn(ISpawnable spawnable) {
+    public GameObject Spawn(ISpawnable spawnable) {
         return spawnable.Spawn(this.gameObject.transform.position);
     }
 
-    private GameObject Spawn(IPoolable poolable) {
+    public GameObject Spawn(IPoolable poolable) {
         poolable.GetGameObject().transform.position = gameObject.transform.position;
         poolable.Activate();
         return poolable.GetGameObject();

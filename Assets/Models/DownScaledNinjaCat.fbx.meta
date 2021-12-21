@@ -27,7 +27,12 @@ ModelImporter:
   - first:
       74: 983627975243731334
     second: metarig|ZTargetIdle
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MC
+    second: {fileID: 2100000, guid: 75850db444a5a2f41b880b1705258ee8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

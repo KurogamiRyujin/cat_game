@@ -11,6 +11,7 @@ public class SpawnReferenceSO : ScriptableObject
     public enum SpawnType {
         CAT,
         TEST,
+        PEOPLE,
         OTHER
     }
     //NOTE: Changed it to normal instantiate instead of Asyncrhronous Instantiate from Addressables.

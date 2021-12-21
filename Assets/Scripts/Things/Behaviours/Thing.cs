@@ -14,11 +14,6 @@ public abstract class Thing : MonoBehaviour
 
     protected IWeight thingOnTop;
 
-    protected virtual void Awake() {
-        currentThingStats = new ThingStats();
-        
-    }
-
     protected virtual void Start() {
         currentThingStats.AddStatus(new ChillImmunity(thingStats.chillImmunityOnSpawnDuration));
     }

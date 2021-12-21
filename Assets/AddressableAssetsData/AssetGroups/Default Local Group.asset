@@ -49,6 +49,10 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/UI/PlayerEntry.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 170e634b05910f74abb00908f6be88c9
+    m_Address: Assets/Prefabs/Things/PeopleThing.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5efe83e42d05e8a43a0be4fe019b4f1b, type: 2}
   m_SchemaSet:

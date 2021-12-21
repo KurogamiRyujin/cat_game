@@ -125,7 +125,8 @@ public class Cat : Thing, ISpawnable, IControllable, IPoolable, IWeight, IBurnab
     }
 
     public void Activate() {
-        OnActivate();
+        currentThingStats.AddStatus(new ChillImmunity(thingStats.chillImmunityOnSpawnDuration));
+        InitStats();
         gameObject.SetActive(true);
     }
 
@@ -134,12 +135,6 @@ public class Cat : Thing, ISpawnable, IControllable, IPoolable, IWeight, IBurnab
         currentThingStats.CleanseAllStatus();
         gameObject.SetActive(false);
         OnRelease(this);
-    }
-
-    public void OnActivate()
-    {
-        currentThingStats.AddStatus(new ChillImmunity(thingStats.chillImmunityOnSpawnDuration));
-        InitStats();
     }
 
     public float GetWeight()

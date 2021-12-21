@@ -41,10 +41,10 @@ public class SpawnDeciderSO : ScriptableObject
     //RandomLogic
     private SpawnReferenceSO RandomLogic(SpawnableListSO spawnableList) {
         SpawnReferenceSO suggestion = null;
-        int selectedTypeIndex = UnityEngine.Random.Range(0, Enum.GetNames(typeof(SpawnReferenceSO.SpawnType)).Length);
+        int selectedTypeIndex = UnityEngine.Random.Range(0, spawnableList.spawnables.Count);
 
         //Randomly suggests a spawnable
-        suggestion = spawnableList.spawnables.Find(x => Array.IndexOf(Enum.GetValues(typeof(SpawnReferenceSO.SpawnType)), x.GetSpawnType()) == selectedTypeIndex);
+        suggestion = spawnableList.spawnables[selectedTypeIndex];
 
         return suggestion;
     }
