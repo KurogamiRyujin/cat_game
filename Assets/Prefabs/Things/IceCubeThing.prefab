@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7b802323f41b42449b2c5aff9b2ca2ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,8 +131,11 @@ MonoBehaviour:
   currentThingStats:
     weight: 2
     heatValue: -5
+    weightModifiers: 0
+    heatModifiers: 0
   iceCubeModelToMelt: {fileID: 1881210652331542198}
   meltInterval: 3
+  heatIncrease: 0
   boilerCondition: {fileID: 11400000, guid: 29c0834a81d2fda449fd47c60f678c97, type: 2}
 --- !u!65 &8243237920595793252
 BoxCollider:
