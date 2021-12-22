@@ -5,8 +5,12 @@ using UnityEngine;
 public abstract class StatusEffect
 {
     protected float duration;
+    protected bool isInfinite;
     public abstract void ApplyStatus(ThingStats thingStats);
     public virtual bool DecayDuration() {
+        if(isInfinite) {
+            return true;
+        }
         duration -= Time.deltaTime;
         // Debug.Log("Duration " + duration);
 

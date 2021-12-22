@@ -5,7 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Earth Stats", menuName = "ThreeZones/Earth/Stats")]
 public class EarthStatsSO : ScriptableObject
 {
-    [Header("Inherent Stats")]
+    [Header("Initial Stats")]
+    [SerializeField] private float initialWeightCarrying = 0f;
+
+    [Header("Stats")]
     //Earth's current altitude based on the Y axis.
     public float altitude;
     //Boiler temperature considered to have no effect on the Earth's altitude.
@@ -22,4 +25,8 @@ public class EarthStatsSO : ScriptableObject
     public float temperatureAltitudeDeltaScalerMod = 1f;
     [Range(0.01f, 1f)]
     public float weightAltitudeDeltaScalerMod = 1f;
+
+    public float InitialWeightCarrying() {
+        return initialWeightCarrying;
+    }
 }

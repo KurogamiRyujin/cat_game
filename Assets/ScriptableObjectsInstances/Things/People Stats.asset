@@ -16,4 +16,4 @@ MonoBehaviour:
   heatValue: 2
   chillImmunityOnSpawnDuration: 1
   movementSpeed: 1
-  birthRate: 10
+  birthInterval: 10

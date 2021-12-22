@@ -6,6 +6,11 @@ public class Chill : StatusEffect
 {
     public Chill(float duration) {
         this.duration = duration;
+        isInfinite = false;
+    }
+
+    public Chill() {
+        isInfinite = true;
     }
 
     public override void ApplyStatus(ThingStats thingStats)

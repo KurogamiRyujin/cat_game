@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 617d9be015db68348a623b01ea51a8c5, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.47884, g: 0.8001845, b: 0.90072787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 3564dcf00dbeff8489c4be3c2ec9eae1, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -796,6 +796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenes:
   - {fileID: 11400000, guid: 4dec57a03a7b04f478796def6f79c50e, type: 2}
+  loadSceneMode: 0
   sceneLoader: {fileID: 11400000, guid: 25c0a9ef69380f342adaf0e931a65b28, type: 2}
   OnSceneLoadingFinished:
     m_PersistentCalls:
@@ -968,6 +969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenes:
   - {fileID: 11400000, guid: fa9fe9bf886016140a64d0723fb9a5c6, type: 2}
+  loadSceneMode: 0
   sceneLoader: {fileID: 11400000, guid: 25c0a9ef69380f342adaf0e931a65b28, type: 2}
   OnSceneLoadingFinished:
     m_PersistentCalls:

@@ -22,12 +22,13 @@ public class Earth : MonoBehaviour, IBurnable, IBanishable, IStalkable
     private void Awake() {
         isBurning = false;
         weights = new List<IWeight>();
-        earthStats.weightCarrying = 0f;
+        earthStats.weightCarrying = earthStats.InitialWeightCarrying();
     }
 
     private void Update() {
         //Set the weight Earth is carrying to the total weights of all IWeight objects on it.
-        earthStats.weightCarrying = (from weight in weights select weight.GetWeight()).Sum();
+        float weightCarried = (from weight in weights select weight.GetWeight()).Sum();
+        earthStats.weightCarrying = (weightCarried < 0) ? 0 : weightCarried;
     }
 
     public void Burn() {

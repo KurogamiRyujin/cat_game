@@ -131,6 +131,9 @@ MonoBehaviour:
   currentThingStats:
     weight: 1
     heatValue: 2
+    weightModifiers: 0
+    heatModifiers: 0
+  pileCheckStartingPoint: {fileID: 8479867140874019584}
   pushDuration: 3
   boilerCondition: {fileID: 11400000, guid: 29c0834a81d2fda449fd47c60f678c97, type: 2}
 --- !u!114 &-5844627466288698755

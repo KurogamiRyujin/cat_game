@@ -18,9 +18,34 @@ public class Boiler : MonoBehaviour
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, boilerStats.altitude, gameObject.transform.position.z);
     }
 
+    private void Start() {
+        Init();
+    }
+
+    private void Init() {
+        boilerStats.eruptionModifier = boilerStats.InitialEruptionModifier();
+        boilerStats.freezeModifier = boilerStats.InitialFreezeModifier();
+        boilerStats.eruptionModifierModifier = 0f;
+        boilerStats.freezeModifierModifier = 0f;
+    }
+
+    private void Update() {
+        float eruptionMod = boilerStats.InitialEruptionModifier() + boilerStats.eruptionModifierModifier;
+        float freezeMod = boilerStats.InitialFreezeModifier() + boilerStats.freezeModifierModifier;
+        
+        boilerStats.eruptionModifier = (eruptionMod <= 0f) ? 0f : eruptionMod;
+        boilerStats.freezeModifier = (freezeMod >= 0f) ? 0f : freezeMod;
+    }
+
     private void OnEnable() {
         //Register events
         temperatureChangeBroadcasting.onEventRaised += OnStatusChange;
+        Init();
+    }
+
+    private void OnDisable() {
+        //Unregister events
+        temperatureChangeBroadcasting.onEventRaised -= OnStatusChange;
     }
 
     private void OnStatusChange(Status status) {

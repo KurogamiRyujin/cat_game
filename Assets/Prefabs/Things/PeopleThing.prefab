@@ -126,7 +126,11 @@ MonoBehaviour:
   currentThingStats:
     weight: 1
     heatValue: 2
+    weightModifiers: 0
+    heatModifiers: 0
+  pileCheckStartingPoint: {fileID: 8424490563826283085}
   peopleStats: {fileID: 11400000, guid: 79aaddeba6dbbee498c1a6ce4a872435, type: 2}
+  changeLookInterval: 3
   spawnableList: {fileID: 11400000, guid: bed19d7bd407a234c9329b3bcf087014, type: 2}
   spawningLogic: {fileID: 11400000, guid: c07ed214b258297458ffe892d3b6e66c, type: 2}
   spawner: {fileID: 259983456559477572}

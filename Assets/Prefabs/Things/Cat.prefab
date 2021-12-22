@@ -81,6 +81,9 @@ MonoBehaviour:
   currentThingStats:
     weight: 1
     heatValue: 2
+    weightModifiers: 0
+    heatModifiers: 0
+  pileCheckStartingPoint: {fileID: 1888627348174993242}
   playerInputConfig: {fileID: 11400000, guid: 56b6eb3763690a74bbaaa28485376fb6, type: 2}
   catStats: {fileID: 11400000, guid: dd7c35157648a99439c0c7ac79d23dd3, type: 2}
   pushRequestChannel: {fileID: 11400000, guid: 0ed89ae3410132c4eb1796deb253045c, type: 2}

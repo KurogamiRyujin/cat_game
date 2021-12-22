@@ -71,7 +71,6 @@ public class AltitudeControl : MonoBehaviour
         
         //Apply Weight Modifiers
         //Weight pushes Earth down.
-        earthStats.weightCarrying = (earthStats.weightCarrying < 0f) ? 0f : earthStats.weightCarrying;
         altitudeModifier -= (earthStats.weightCarrying) * earthStats.weightAltitudeDeltaScalerMod;
 
         if(applyEruptionMod) {
@@ -84,7 +83,7 @@ public class AltitudeControl : MonoBehaviour
         
         //Implement Altitude Change
         Vector3 force = new Vector3(0f, altitudeModifier, 0f);
-        rb.velocity = force;
+        rb.velocity = Vector3.Lerp(rb.velocity, force, Time.fixedDeltaTime);
     }
 
     private void OnBoilerEruption() {

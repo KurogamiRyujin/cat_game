@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7949fd9a5b38dc4d819de4a7270aff9, type: 3}
   m_Name: Earth Stats
   m_EditorClassIdentifier: 
+  initialWeightCarrying: 0
   altitude: 7.0238686
   neutralTemperaturePoint: 50
   weightCarrying: 2

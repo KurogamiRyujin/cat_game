@@ -9,8 +9,8 @@ public abstract class Thing : MonoBehaviour
     [SerializeField] protected ThingStatsSO thingStats;
     [Header("Current Thing Stats")]
     [SerializeField] protected ThingStats currentThingStats;
-    // [SerializeField] protected float weight = 1f;
-    // [SerializeField] protected int heatValue = 2;
+
+    [SerializeField] protected Transform pileCheckStartingPoint;
 
     protected IWeight thingOnTop;
 
@@ -43,7 +43,7 @@ public abstract class Thing : MonoBehaviour
 
     //Cast a ray above this object to see if there is an IWeight on top of it.
     private void PileCheck() {
-        Ray ray = new Ray(gameObject.transform.position, Vector3.up);
+        Ray ray = new Ray(pileCheckStartingPoint.position, Vector3.up);
         //Cast ray to check if there's an IWeight on top
         if(Physics.Raycast(ray, out RaycastHit hit)) {
             IWeight weightable = hit.transform.gameObject.GetComponent<IWeight>();

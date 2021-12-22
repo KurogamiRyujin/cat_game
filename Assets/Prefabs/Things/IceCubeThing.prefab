@@ -133,6 +133,7 @@ MonoBehaviour:
     heatValue: -5
     weightModifiers: 0
     heatModifiers: 0
+  pileCheckStartingPoint: {fileID: 6037428731960685939}
   iceCubeModelToMelt: {fileID: 1881210652331542198}
   meltInterval: 3
   heatIncrease: 0

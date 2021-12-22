@@ -10,7 +10,19 @@ public class BoilerStatsSO : ScriptableObject
     public float altitude = -8f;
 
     [Header("How strong an eruption adds to the upward force for Earth")]
-    public float eruptionModifier = 50f;
+    [SerializeField] private float initialEruptionModifier = 5f;
+    public float eruptionModifier = 5f;
+    public float eruptionModifierModifier = 0f;
     [Header("How strong a freeze adds to the downward force for Earth")]
-    public float freezeModifier = -50f;
+    [SerializeField] private float initialFreezeModifier = -5f;
+    public float freezeModifier = -5f;
+    public float freezeModifierModifier = 0f;
+
+    public float InitialEruptionModifier() {
+        return initialEruptionModifier;
+    }
+
+    public float InitialFreezeModifier() {
+        return initialFreezeModifier;
+    }
 }
