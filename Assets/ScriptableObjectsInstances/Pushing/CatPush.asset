@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalPushStrength: 500
   hardPushStrength: 2500
+  normalPushParticle: {fileID: 11400000, guid: d82e86a44384fdd47a543dfa60864782, type: 2}
+  hardPushParticle: {fileID: 11400000, guid: 555b939890778134cb37b494b63d654c, type: 2}
+  sfxType: 0

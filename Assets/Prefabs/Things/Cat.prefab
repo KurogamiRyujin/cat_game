@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &559206227317412982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4957791387954828650}
+  m_Layer: 0
+  m_Name: ParticleSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4957791387954828650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559206227317412982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3153366029200540816}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1888627348174993244
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +194,7 @@ Transform:
   m_Children:
   - {fileID: 1615679837790868526}
   - {fileID: 6162047683343605165}
+  - {fileID: 4957791387954828650}
   m_Father: {fileID: 1888627348174993242}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -192,6 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32922d2cb0e39c042bd2c3e1e3ff9bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spontaneousParticleManager: {fileID: 11400000, guid: 06df17181b119664492ffdbfca24a450, type: 2}
+  particleSpawnPoint: {fileID: 4957791387954828650}
   pushStatsReference: {fileID: 11400000, guid: 2e929e91658a112478d2d3ccab58cbf2, type: 2}
   pushRequestChannel: {fileID: 11400000, guid: 0ed89ae3410132c4eb1796deb253045c, type: 2}
   doPushSFXChannel: {fileID: 11400000, guid: 7732a734858f113418ebcdb6b1d1d3bb, type: 2}

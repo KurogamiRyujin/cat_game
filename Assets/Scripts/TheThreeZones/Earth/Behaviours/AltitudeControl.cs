@@ -18,6 +18,7 @@ public class AltitudeControl : MonoBehaviour
     [SerializeField] private VoidBroadcastChannelSO eruptionChannel;
     [SerializeField] private VoidBroadcastChannelSO freezeChannel;
     [SerializeField] private VoidBroadcastChannelSO normalChannel;
+    [SerializeField] private VoidBroadcastChannelSO gameOverChannel;
 
     //Earth's Rigidbody
     private Rigidbody rb;
@@ -29,6 +30,7 @@ public class AltitudeControl : MonoBehaviour
     
     private bool applyEruptionMod;
     private bool applyFreezeMod;
+    private bool isGameOver;
 
     //Initialize values
     private void Awake() {
@@ -37,6 +39,7 @@ public class AltitudeControl : MonoBehaviour
         earthStats.altitude = 0f;
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, earthStats.altitude, gameObject.transform.position.z);
         startingPos = gameObject.transform.position;
+        isGameOver = false;
     }
 
     private void OnEnable() {
@@ -44,6 +47,7 @@ public class AltitudeControl : MonoBehaviour
         eruptionChannel.onEventRaised += OnBoilerEruption;
         freezeChannel.onEventRaised += OnBoilerFreeze;
         normalChannel.onEventRaised += OnBoilerNormal;
+        gameOverChannel.onEventRaised += OnGameOver;
     }
 
     private void OnDisable() {
@@ -51,6 +55,7 @@ public class AltitudeControl : MonoBehaviour
         eruptionChannel.onEventRaised -= OnBoilerEruption;
         freezeChannel.onEventRaised -= OnBoilerFreeze;
         normalChannel.onEventRaised -= OnBoilerNormal;
+        gameOverChannel.onEventRaised -= OnGameOver;
     }
 
     private void FixedUpdate() {
@@ -58,10 +63,19 @@ public class AltitudeControl : MonoBehaviour
     }
 
     private void Update() {
-        earthStats.altitude = this.gameObject.transform.position.y - startingPos.y;
+        earthStats.altitude = gameObject.transform.position.y - startingPos.y;
+        
+        // if(isGameOver) {
+        //     Vector3 stablePosition = new Vector3(transform.position.x, boilerStats.altitude, transform.position.z);
+        //     transform.position = Vector3.Lerp(transform.position, stablePosition, Time.deltaTime);
+        // }
     }
 
     private void AffectAltitude() {
+        if(isGameOver) {
+            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, Time.fixedDeltaTime);
+            return;
+        }
         //Apply Temperature Modifiers
         //If boiler temperature is above neutralTemperaturePoint, push Earth up
         //If boiler temperature is below neutralTemperaturePoint, push Earth down
@@ -84,6 +98,10 @@ public class AltitudeControl : MonoBehaviour
         //Implement Altitude Change
         Vector3 force = new Vector3(0f, altitudeModifier, 0f);
         rb.velocity = Vector3.Lerp(rb.velocity, force, Time.fixedDeltaTime);
+    }
+
+    private void OnGameOver() {
+        isGameOver = true;
     }
 
     private void OnBoilerEruption() {

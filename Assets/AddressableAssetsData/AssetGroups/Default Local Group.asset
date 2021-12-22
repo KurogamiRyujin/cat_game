@@ -53,6 +53,22 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/Things/PeopleThing.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: e9391f622091e1449bdef4ef15af4948
+    m_Address: Assets/JMO Assets/Cartoon FX/CFX4 Prefabs/Misc/CFX4 Hit B (Orange).prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f95ff734540a0d749be6571b6cb5b37f
+    m_Address: Assets/JMO Assets/Cartoon FX/CFX Prefabs/Hits/CFX_Hit_A Red+RandomText.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1c20c7996d683754db1f0f62a361952c
+    m_Address: Assets/JMO Assets/Cartoon FX/CFX4 Prefabs/Fire/CFX4 Fire.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7e48ba6b1b968764490bbc70b66e3fe1
+    m_Address: Assets/JMO Assets/Cartoon FX/CFX3 Prefabs/Fire/CFX3_Fire_Explosion.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5efe83e42d05e8a43a0be4fe019b4f1b, type: 2}
   m_SchemaSet:

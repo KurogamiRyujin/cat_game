@@ -150,6 +150,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   earthStats: {fileID: 11400000, guid: 1d853c5a7721638489aaaf495e434c06, type: 2}
+  spontaneousParticleManager: {fileID: 11400000, guid: 06df17181b119664492ffdbfca24a450, type: 2}
+  fire: {fileID: 11400000, guid: 30767b6d7e3911e4ab8a7f51eece5308, type: 2}
+  explosion: {fileID: 11400000, guid: 27bcdf912063f1d469c1eea20c20b44f, type: 2}
+  maxFires: 20
+  explosionsInterval: 0.1
+  minXDestructionPoint: -15
+  maxXDestructionPoint: 15
+  minZDestructionPoint: -15
+  maxZDestructionPoint: 15
+  minYDestructionPointDisplacement: -1
+  maxYDestructionPointDisplacement: 1
   gameOverChannel: {fileID: 11400000, guid: 8ab84f492be8d484489dff2c045fef05, type: 2}
 --- !u!114 &3414414312775927659
 MonoBehaviour:
@@ -169,6 +180,7 @@ MonoBehaviour:
   eruptionChannel: {fileID: 11400000, guid: 75d5aa452d76dba428a6ad2dce359826, type: 2}
   freezeChannel: {fileID: 11400000, guid: ccccd16b38eee0e4993bd642842a4995, type: 2}
   normalChannel: {fileID: 11400000, guid: 5f0ac482116acf94f9aa85cfff394199, type: 2}
+  gameOverChannel: {fileID: 11400000, guid: 8ab84f492be8d484489dff2c045fef05, type: 2}
 --- !u!65 &3414414312775927656
 BoxCollider:
   m_ObjectHideFlags: 0

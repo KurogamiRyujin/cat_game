@@ -10,8 +10,16 @@ public class PushSO : ScriptableObject
         HARD
     }
 
+    [Header("Push Stats")]
     public float normalPushStrength = 500f;
     public float hardPushStrength = 2500f;
+
+    [Header("Push Particles")]
+    public ParticleReferenceSO normalPushParticle;
+    public ParticleReferenceSO hardPushParticle;
+
+    [Header("Push Sfx")]
+    public SfxSO.SFXType sfxType;
 
     /// <summary>
     /// Returns the push strength based on the type of push.

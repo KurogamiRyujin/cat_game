@@ -6,8 +6,13 @@ using UnityEngine;
 //Needs a trigger collider for this to work.
 public class Push : MonoBehaviour
 {
+    [Header("Particles")]
+    [SerializeField] private SpontaneousParticleManagerSO spontaneousParticleManager;
+    [SerializeField] private Transform particleSpawnPoint;
+
     [Header("Push Stats Reference")]
     [SerializeField] private PushSO pushStatsReference;
+
     [Header("Channel listening to")]
     [SerializeField] private PushRequestChannel pushRequestChannel;
 
@@ -18,6 +23,8 @@ public class Push : MonoBehaviour
 
     private void Awake() {
         pushables = new List<IPushable>();
+        spontaneousParticleManager.LoadParticle(pushStatsReference.normalPushParticle);
+        spontaneousParticleManager.LoadParticle(pushStatsReference.hardPushParticle);
     }
 
     private void OnEnable() {
@@ -54,7 +61,7 @@ public class Push : MonoBehaviour
         bool didPush = false;
 
         if(doPushSFXChannel.onEventRaised != null) {
-            doPushSFXChannel.SfxRequestEventRaised(SfxSO.SFXType.PUSH);
+            doPushSFXChannel.SfxRequestEventRaised(pushStatsReference.sfxType);
         }
 
         for(int i = pushables.Count-1; i >= 0; i--) {
@@ -67,9 +74,11 @@ public class Push : MonoBehaviour
             switch(pushType) {
                 case PushSO.PushType.NORMAL:
                 pushHitSFXChannel.SfxRequestEventRaised(SfxSO.SFXType.NORMAL_PUSH_HIT);
+                Instantiate(spontaneousParticleManager.RequestParticle(pushStatsReference.normalPushParticle), particleSpawnPoint.position, Quaternion.identity);
                 break;
                 case PushSO.PushType.HARD:
                 pushHitSFXChannel.SfxRequestEventRaised(SfxSO.SFXType.HARD_PUSH_HIT);
+                Instantiate(spontaneousParticleManager.RequestParticle(pushStatsReference.hardPushParticle), particleSpawnPoint.position, Quaternion.identity);
                 break;
             }
         }
