@@ -13,7 +13,13 @@ public class SfxSO : ScriptableObject
         PUSH,
         NORMAL_PUSH_HIT,
         HARD_PUSH_HIT,
-        BURN
+        BURN,
+        ERUPTION,
+        EXPLOSION,
+        FREEZE,
+        BOILER,
+        BANISH,
+        CAT_DEAD
     }
     public AudioClip audioClip;
     public SFXType sfxType;

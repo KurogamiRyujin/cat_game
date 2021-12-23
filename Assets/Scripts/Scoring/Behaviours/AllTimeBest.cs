@@ -15,6 +15,8 @@ public class AllTimeBest : MonoBehaviour
     [SerializeField] private PlayerListSO playerList = null;
     [SerializeField] private DisplayType displayType = DisplayType.NAME;
     private Text displayedText;
+    private ulong currentScore;
+    private ulong incrementer;
 
     private void Awake() {
         displayedText = gameObject.GetComponent<Text>();
@@ -24,18 +26,25 @@ public class AllTimeBest : MonoBehaviour
         ulong score = 0;
         string playerName = "";
 
-        if(playerList != null && playerList.playerList.Count > 0) {
-            score = playerList.playerList.Select(x => x.hiScore).Max<ulong>();
-            playerName = playerList.playerList.Find(x => x.hiScore == score).playerName;
+        if(playerList != null && playerList.playerList.Count == 0) {
+            playerList.playerList.AddRange(PlayerDataManager.LoadAllPlayers());
         }
+
+        score = playerList.playerList.Select(x => x.hiScore).Max<ulong>();
+        playerName = playerList.playerList.Find(x => x.hiScore == score).playerName;
 
         switch(displayType) {
             case DisplayType.NAME:
             displayedText.text = playerName;
             break;
             case DisplayType.SCORE:
-            displayedText.text = score.ToString();
+            displayedText.text = LerpToScore(score).ToString();
             break;
         }
+    }
+
+    private ulong LerpToScore(ulong target) {
+        currentScore = (currentScore < target) ? currentScore+(incrementer++) : target;
+        return currentScore;
     }
 }

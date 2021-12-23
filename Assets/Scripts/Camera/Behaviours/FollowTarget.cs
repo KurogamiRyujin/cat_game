@@ -7,12 +7,18 @@ public class FollowTarget : MonoBehaviour
 {
     [Header("Target")]
     public GameObject stalkableObject;
+
+    [Header("Channels listening to")]
+    [SerializeField] private VoidBroadcastChannelSO gameOverChannel;
+
     private IStalkable stalkable;
 
     //Distance between this game object and the target at the start.
     private Vector3 initialDistance;
+    private bool shouldFollow;
 
     private void Start() {
+        shouldFollow = true;
         SetStalkable();
 
         if(stalkable != null) {
@@ -20,8 +26,24 @@ public class FollowTarget : MonoBehaviour
         }
     }
 
+    private void OnEnable() {
+        //Register events
+        gameOverChannel.onEventRaised += OnGameOver;
+    }
+
+    private void OnDisable() {
+        //Unregister events
+        gameOverChannel.onEventRaised -= OnGameOver;
+    }
+
     private void Update() {
-        MaintainDistance();
+        if(shouldFollow) {
+            MaintainDistance();
+        }
+    }
+
+    private void OnGameOver() {
+        shouldFollow = false;
     }
 
     //Adjust this gameObject's position so it keeps its initial distance with the target.

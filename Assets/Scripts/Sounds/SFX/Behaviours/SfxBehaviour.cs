@@ -26,7 +26,12 @@ public class SfxBehaviour : MonoBehaviour
     }
 
     private void OnSoundTriggerEvent() {
-        sfxSource.Play();
+        if(!sfxSource.isPlaying) {
+            sfxSource.Play();
+        }
+        else {
+            sfxSource.PlayOneShot(sfxSource.clip);
+        }
     }
 
     private void OnSoundTriggerEvent(SfxSO.SFXType sfxType) {

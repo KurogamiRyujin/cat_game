@@ -14,11 +14,14 @@ public class Boiler : MonoBehaviour
     [SerializeField] private VoidBroadcastChannelSO eruptionChannel;
     [SerializeField] private VoidBroadcastChannelSO freezeChannel;
     [SerializeField] private VoidBroadcastChannelSO normalChannel;
+    [SerializeField] private SfxRequestBroadcasting boilerSfxChannel;
+    [SerializeField] private SfxRequestBroadcasting boilerEventSfxChannel;
     private void Awake() {
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, boilerStats.altitude, gameObject.transform.position.z);
     }
 
     private void Start() {
+        boilerSfxChannel.SfxRequestEventRaised(SfxSO.SFXType.BOILER);
         Init();
     }
 
@@ -71,12 +74,14 @@ public class Boiler : MonoBehaviour
     private void Eruption() {
         if(eruptionChannel.onEventRaised != null) {
             eruptionChannel.onEventRaised();
+            boilerEventSfxChannel.SfxRequestEventRaised(SfxSO.SFXType.ERUPTION);
         }
     }
 
     private void Freeze() {
         if(freezeChannel.onEventRaised != null) {
             freezeChannel.onEventRaised();
+            boilerEventSfxChannel.SfxRequestEventRaised(SfxSO.SFXType.FREEZE);
         }
     }
 }

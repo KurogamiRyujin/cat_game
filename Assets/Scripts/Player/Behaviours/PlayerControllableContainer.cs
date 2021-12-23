@@ -18,6 +18,8 @@ public class PlayerControllableContainer : MonoBehaviour
 
     [Header("Player Controller")]
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private float playerRespawnTime = 3f;
+    private float respawnTimer;
     // [Header("Pooling")]
     // [SerializeField] private PoolSO playerPool;
 
@@ -25,9 +27,12 @@ public class PlayerControllableContainer : MonoBehaviour
     private IControllable currentControllable;
     private SpawnReferenceSO selectedSpawn;
     private bool isSpawning;
+    private bool isDead;
 
     private void Awake() {
         isSpawning = true;
+        respawnTimer = 0f;
+        isDead = false;
     }
 
     //Test
@@ -46,6 +51,18 @@ public class PlayerControllableContainer : MonoBehaviour
         //Unregister events
         // playerPoolingReleaseBroadcastChannel.onEventRaised -= OnControllableRelease;
         gameOverChannel.onEventRaised -= OnGameOver;
+    }
+
+    private void Update() {
+        if(isDead) {
+            respawnTimer += Time.deltaTime;
+
+            if(respawnTimer >= playerRespawnTime) {
+                respawnTimer = 0f;
+                isDead = false;
+                RequestControllable();
+            }
+        }
     }
 
     //Request a controllable entity.
@@ -81,7 +98,8 @@ public class PlayerControllableContainer : MonoBehaviour
 
     private void OnControllableRelease(IPoolable poolable) {
         // selectedSpawn.pool.Release(poolable);
-        RequestControllable();
+        isDead = true;
+        // RequestControllable();
     }
 
     private void OnGameOver() {

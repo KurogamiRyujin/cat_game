@@ -8,11 +8,6 @@ using UnityEngine;
 public class NoFlyZone : BaseDestructionBehaviour
 {
     protected override void OnTriggerEnter(Collider other) {
-        IBanishable banishable = other.gameObject.GetComponent<IBanishable>();
-        
-        if(banishable != null) {
-            banishable.Banish();
-        }
         base.OnTriggerEnter(other);
     }
 }

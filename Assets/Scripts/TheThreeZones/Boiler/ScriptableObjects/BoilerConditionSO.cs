@@ -6,7 +6,14 @@ using UnityEngine;
 public class BoilerConditionSO : ScriptableObject
 {
     [Header("Boiler Temperature")]
+    [SerializeField] private int initialTemperature = 50;
     public int temperature = 0;
+    public int Initialtemperature {
+        get {
+            return initialTemperature;
+        }
+    }
+
     [Header("Overheat Point")]
     public int overheatPoint = 0;
     [Header("Cold Point")]

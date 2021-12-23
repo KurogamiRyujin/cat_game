@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83c6cd369996744c9f9ad63b11f192e, type: 3}
   m_Name: Boiler Condition
   m_EditorClassIdentifier: 
-  temperature: 50
+  temperature: 16
   overheatPoint: 70
-  coldPoint: 0
+  coldPoint: 30

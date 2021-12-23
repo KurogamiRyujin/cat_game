@@ -13,8 +13,12 @@ public class ScoreUI : MonoBehaviour
     [SerializeField] private ScoreSO.ScoreType scoreType;
 
     private Text scoreText;
+    private ulong currentScore;
+    private ulong incrementer;
 
     private void Awake() {
+        currentScore = 0;
+        incrementer = 1;
         scoreText = GetComponent<Text>();
     }
 
@@ -23,11 +27,16 @@ public class ScoreUI : MonoBehaviour
     {
         switch(scoreType) {
             case ScoreSO.ScoreType.CURRENT:
-            scoreText.text = scoreReference.currentScore.ToString();
+            scoreText.text = LerpToScore(scoreReference.currentScore).ToString();
             break;
             case ScoreSO.ScoreType.HI:
-            scoreText.text = scoreReference.HiScore().ToString();
+            scoreText.text = LerpToScore(scoreReference.HiScore()).ToString();
             break;
         }
+    }
+
+    private ulong LerpToScore(ulong target) {
+        currentScore = (currentScore < target) ? currentScore+(incrementer++) : target;
+        return currentScore;
     }
 }

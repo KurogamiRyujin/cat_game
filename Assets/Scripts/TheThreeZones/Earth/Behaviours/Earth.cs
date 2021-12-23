@@ -25,6 +25,10 @@ public class Earth : MonoBehaviour, IBurnable, IBanishable, IStalkable
     [SerializeField] private float minYDestructionPointDisplacement = -1f;
     [SerializeField] private float maxYDestructionPointDisplacement = 1f;
 
+    [Header("For Banishing")]
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private float banishForce = 5000f;
+
     [Header("Channels Broadcasting to")]
     [SerializeField] private VoidBroadcastChannelSO gameOverChannel;
     
@@ -47,13 +51,19 @@ public class Earth : MonoBehaviour, IBurnable, IBanishable, IStalkable
         explosionTimer = 0f;
     }
 
+    private void FixedUpdate() {
+        if(isBanished) {
+            rb.AddForce(Vector3.up * banishForce);
+        }
+    }
+
     private void Update() {
-        if(!isBurning) {
+        if(!isBurning && !isBanished) {
             //Set the weight Earth is carrying to the total weights of all IWeight objects on it.
             float weightCarried = (from weight in weights select weight.GetWeight()).Sum();
             earthStats.weightCarrying = (weightCarried < 0) ? 0 : weightCarried;
         }
-        else {
+        else if(isBurning) {
             Ignite();
             Explosions();
         }
@@ -97,9 +107,15 @@ public class Earth : MonoBehaviour, IBurnable, IBanishable, IStalkable
     public void Banish() {
         if(!isBanished) {
             isBanished = true;
+            GoOrbital();
             RaiseGameOver();
-            Destroy(gameObject);
         }
+    }
+
+    private void GoOrbital() {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.AddForce(Vector3.up * banishForce);
     }
 
     private void RaiseGameOver() {

@@ -45,7 +45,7 @@ public class UIMoveIn : UIEntrance
     }
 
     private void Settle() {
-        rectTrasform.anchoredPosition = Vector2.Lerp(rectTrasform.anchoredPosition, targetPosition, speed * Time.deltaTime);
+        rectTrasform.anchoredPosition = Vector2.Lerp(rectTrasform.anchoredPosition, targetPosition, 2 * speed * Time.deltaTime);
     }
 
     private void FinishCheck() {

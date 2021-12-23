@@ -11,13 +11,14 @@ public class ConditionMonitoring : MonoBehaviour
 
     [Header("Channels broadcasting to")]
     [SerializeField] private TemperatureChangeBroadcasting temperatureChangeBroadcasting;
+    [SerializeField] private FloatBroadcastingChannel lavaChangeColorChannel;
     
     //Boiler's current status.
     private Status boilerStatus;
 
     private void Start() {
         //Initiate Boiler's current status.
-        boilerCondition.temperature = 50;
+        boilerCondition.temperature = boilerCondition.Initialtemperature;
         boilerStatus = CheckBoilerCondition(boilerCondition.temperature);
     }
 
@@ -25,6 +26,7 @@ public class ConditionMonitoring : MonoBehaviour
         //Check boiler's condition and update its current status.
         //If there was a change in status, raise the corresponding event.
         Status status = CheckBoilerCondition(boilerCondition.temperature);
+        CheckTemperatureWarningDifference();
         if(boilerStatus != status) {
             OnStatusChange(status);
             boilerStatus = status;
@@ -45,6 +47,16 @@ public class ConditionMonitoring : MonoBehaviour
             // Debug.Log("Boiler Normal");
             return Status.NORMAL;
         }
+    }
+
+    private void CheckTemperatureWarningDifference() {
+        float percent = 0f;
+        float coldAndOverheatMean = (boilerCondition.coldPoint + boilerCondition.overheatPoint) / 2f;
+        float meanAndTailEndDifference = boilerCondition.overheatPoint - coldAndOverheatMean;
+        float temperatureAndMeanDifference = boilerCondition.temperature - coldAndOverheatMean;
+
+        percent = temperatureAndMeanDifference / meanAndTailEndDifference;
+        lavaChangeColorChannel.FloatEventRaised(percent);
     }
 
     private void OnStatusChange(Status status) {
